@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jsass-manuscript}[2023/02/17 JSASS Template Class]
+\ProvidesClass{jsass-nenkai}[2023/02/15 JSASS Nenkai Template Class]
 
 \LoadClass[a4paper,notitlepage,twocolumn,10pt]{ltjsarticle}
 
