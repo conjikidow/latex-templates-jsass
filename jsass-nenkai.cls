@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jsass-nenkai}[2023/02/15 JSASS Nenkai Template Class]
+\ProvidesClass{jsass-nenkai}[2023/02/13 JSASS Nenkai Template Class]
 
 \LoadClass[a4paper,notitlepage,twocolumn,10pt]{ltjsarticle}
 
@@ -16,7 +16,7 @@
 
 % \setmainjfont{Harano Aji Mincho}[Scale=0.95,AutoFakeSlant=0.25] % Default font for Linux, MacOS, etc.
 \setmainjfont{MS Mincho}[Scale=0.95,AutoFakeBold=2,AutoFakeSlant=0.25] % Default font for Windows
-% \setmainjfont{MogaMincho}[Scale=0.95,AutoFakeSlant=0.25] % Recommended for Linux, MacOS, etc.
+% \setmainjfont{Moga Mincho}[Scale=0.95,AutoFakeSlant=0.25] % Recommended font for Linux, MacOS, etc.
 \setmainfont{Times New Roman}[Scale=0.95]
 
 
