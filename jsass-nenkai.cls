@@ -97,7 +97,7 @@
     \@etitle\\[-1pt]
     \@eauthor~(\@einstitute)
     \vskip 1.5em
-    Key Words：\@keywords
+    Key Words~:~\@keywords
   \end{center}%
   \par\vskip 1.2em
   \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip 1.5em\fi
