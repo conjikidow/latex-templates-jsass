@@ -120,14 +120,16 @@
 
 
 % Sections
+\RequirePackage{amsmath} % Must be loaded before cleverref
+\RequirePackage[unicode,hidelinks]{hyperref} % Must be loaded before cleverref
 \RequirePackage{cleveref}
 \RequirePackage{titlesec}
 
-\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{0em}{．}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection．}{0em}{}
 \titleformat{\subsection}{\normalfont\normalsize}{\thesubsection}{1em}{}
 
 \titlespacing{\section}{0pt}{1.5em}{0pt}
-\titlespacing{\subsection}{0pt}{0pt}{0pt}
+\titlespacing{\subsection}{0pt}{0.5em}{0pt}
 
 \newcommand{\fullwidtharabic}[1]{\expandafter\@fullwidtharabic\csname c@#1\endcsname}
 \newcommand{\@fullwidtharabic}[1]{\expandafter\@@fullwidtharabic\number#1@}
