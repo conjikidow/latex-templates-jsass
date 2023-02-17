@@ -20,7 +20,10 @@
     - [PDF](sample/50_mihon.pdf)
     - [Word](sample/50_mihon.doc)
 - 本テンプレートを用いた見本
-    - [ソース](example/nenkai.tex)
-    - [出力](example/nenkai.pdf)
+    - [ソース](example/nenkai_1.tex)，[出力](example/nenkai_1.pdf)
+        - 配布見本を模擬
+    - [ソース](example/nenkai_2.tex)，[出力](example/nenkai_2.pdf)
+        - タイトル内での改行例
+        - 著者の所属が複数にわたる例
 - 動作確認環境
     - TeX Live 2021 @ Ubuntu 20.04.5 LTS
