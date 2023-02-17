@@ -21,23 +21,109 @@
 
 
 % Title
+\RequirePackage{authblk}
 \RequirePackage[usestackEOL]{stackengine}
 
 \newcommand{\@lectnum}{\@empty}
 \newcommand{\@etitle}{\@empty}
-\newcommand{\@eauthor}{\@empty}
-\newcommand{\@institute}{\@empty}
-\newcommand{\@einstitute}{\@empty}
 \newcommand{\@keywords}{\@empty}
 \newcommand{\lectnum}[1]{\renewcommand{\@lectnum}{#1}}
-\newcommand{\etitle}[1]{\renewcommand{\@etitle}{#1}}
-\newcommand{\eauthor}[1]{\renewcommand{\@eauthor}{#1}}
-\newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
-\newcommand{\einstitute}[1]{\renewcommand{\@einstitute}{#1}}
+\renewcommand{\title}[2]{\renewcommand{\@title}{#1}\renewcommand{\@etitle}{#2}}
 \newcommand{\keywords}[1]{\renewcommand{\@keywords}{#1}}
+
+\renewcommand\Authfont{\normalfont\bfseries}
+\renewcommand\Authsep{，}
+\renewcommand\Authands{，}
+\renewcommand\Authand{，}
+\newcommand\eAuthfont{\normalfont}
+\newcommand\eAffilfont{\normalfont}
+\newcommand\eAuthsep{, }
+\newcommand\eAuthands{, and }
+\newcommand\eAuthand{ and }
+\@namedef{@esep1}{}
+\@namedef{@esep2}{\eAuthand}
+\newcommand\AB@eauthlist{}
+\let\AB@note@prev\@empty
+
+\RenewDocumentCommand\author{o m m}{
+  \ifnewaffil\addtocounter{affil}{1}%
+    \edef\AB@thenote{\arabic{affil}}
+  \fi
+  \if\relax#1\relax
+    \def\AB@note{\AB@thenote}
+  \else
+    \def\AB@note{#1}%
+    \setcounter{Maxaffil}{0}
+  \fi
+  \ifnum\value{authors}>1\relax
+    \@namedef{@sep\number\c@authors}{\Authsep}
+    \@namedef{@esep\number\c@authors}{\eAuthsep}
+  \fi
+  \addtocounter{authors}{1}%
+  \begingroup
+    \let\protect\@unexpandable@protect
+    \@temptokena=\expandafter{\AB@authlist}%
+    \let\\=\authorcr
+    \xdef\AB@authlist{\the\@temptokena%
+      \ifx\AB@note@prev\@empty\else
+        \ifx\AB@note@prev\AB@note\else
+          {\protect\Affilfont（\@nameuse{affil@\AB@note@prev}）}%
+        \fi
+      \fi
+      \protect\@nameuse{@sep\number\c@authors}%
+      \protect{\Authfont#2}%
+    }%
+    \@temptokena=\expandafter{\AB@eauthlist}%
+    \xdef\AB@eauthlist{\the\@temptokena%
+    \ifx\AB@note@prev\@empty\else
+      \ifx\AB@note@prev\AB@note\else
+        {\protect\eAffilfont~(\@nameuse{eaffil@\AB@note@prev})}%
+      \fi
+    \fi
+    \protect\@nameuse{@esep\number\c@authors}%
+    \protect{\eAuthfont#3}%
+  }%
+  \endgroup
+  \let\AB@note@prev\AB@note
+  \ifnum\value{authors}>2\relax
+    \@namedef{@sep\number\c@authors}{\Authands}
+    \@namedef{@esep\number\c@authors}{\eAuthands}
+  \fi
+  \newaffilfalse
+}
+
+\let\affil\undefined
+\NewDocumentCommand\affiliation{o m m}{
+  \newaffiltrue\let\AB@blk@and\AB@pand
+  \if\relax#1\relax
+    \def\AB@note{\AB@thenote}
+  \else
+    \def\AB@note{#1}%
+    \setcounter{Maxaffil}{0}
+  \fi
+  \@namedef{affil@\AB@note}{#2}
+  \@namedef{eaffil@\AB@note}{#3}
+}
+
+\renewcommand{\@author}{○\AB@authlist}
+\newcommand{\@eauthor}{\AB@eauthlist}
+
+
 
 \renewcommand{\maketitle}{\par
   \begingroup
+    \begingroup
+      \let\protect\@unexpandable@protect
+      \@temptokena=\expandafter{\AB@authlist}%
+      \let\\=\authorcr
+      \xdef\AB@authlist{\the\@temptokena%
+        {\protect\Affilfont（\@nameuse{affil@\AB@note@prev}）}%
+      }%
+      \@temptokena=\expandafter{\AB@eauthlist}%
+      \xdef\AB@eauthlist{\the\@temptokena%
+        {\protect\eAffilfont~(\@nameuse{eaffil@\AB@note@prev})}%
+      }%
+    \endgroup
     \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
     \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
     \long\def\@makefntext##1{\advance\leftskip 3\zw
@@ -63,20 +149,15 @@
   \global\let\@thanks\@empty
   \global\let\@date\@empty
   \global\let\@keywords\@empty
-  \global\let\@einstitute\@empty
   \global\let\@eauthor\@empty
   \global\let\@etitle\@empty
-  \global\let\@institute\@empty
   \global\let\@author\@empty
   \global\let\@title\@empty
   \global\let\@lectnum\@empty
   \global\let\lectnum\relax
   \global\let\title\relax
-  \global\let\etitle\relax
   \global\let\author\relax
-  \global\let\eauthor\relax
-  \global\let\institute\relax
-  \global\let\einstitute\relax
+  \global\let\affiliation\relax
   \global\let\keywords\relax
   \global\let\date\relax
   \global\let\and\relax
@@ -92,10 +173,10 @@
         \@lectnum & \Longunderstack{\@title}
       \end{tabular}\par}%
     \vskip 1.5em\vskip 5pt
-    ○\textbf{\@author}（\@institute）
+    \@author
     \vskip 1.5em
     \@etitle\\[-1pt]
-    \@eauthor~(\@einstitute)
+    \@eauthor
     \vskip 1.5em
     Key Words~:~\@keywords
   \end{center}%
