@@ -108,8 +108,6 @@
 \renewcommand{\@author}{○\AB@authlist}
 \newcommand{\@eauthor}{\AB@eauthlist}
 
-
-
 \renewcommand{\maketitle}{\par
   \begingroup
     \begingroup
@@ -233,10 +231,14 @@
 
 
 % Floats
-\RequirePackage{cleveref}
+\RequirePackage{subcaption}
 
 \renewcommand{\thetable}{\fullwidtharabic{table}}
 \renewcommand{\thefigure}{\fullwidtharabic{figure}}
+
+\DeclareCaptionLabelSeparator{full-space}{　}
+\captionsetup{format=hang,font={normalsize},labelsep=full-space}
+
 \crefformat{table}{#2表#1#3}
 \Crefformat{table}{#2表#1#3}
 \crefformat{figure}{#2図#1#3}
