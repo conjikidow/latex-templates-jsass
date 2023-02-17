@@ -166,22 +166,22 @@
   \newpage\null
   \begin{center}%
     \let\footnote\thanks
-    \vspace{-3pt}
-    {\fontsize{17pt}{17pt}\bfseries
+    \vspace{-10.5pt}
+    {\fontsize{17pt}{25pt}\bfseries
       \setlength{\tabcolsep}{8pt}
       \begin{tabular}[t]{c c}%
         \@lectnum & \Longunderstack{\@title}
       \end{tabular}\par}%
-    \vskip 1.5em\vskip 5pt
+    \vskip 1.5em\vskip 3.5pt
     \@author
     \vskip 1.5em
-    \@etitle\\[-1pt]
+    \@etitle\\
     \@eauthor
     \vskip 1.5em
     Key Words~:~\@keywords
   \end{center}%
-  \par\vskip 1.2em
-  \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip 1.5em\fi
+  \par\vskip 1.5em\vspace{-3pt}
+  \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip 1.5em\vspace{-0.5pt}\fi
 }
 
 \renewcommand{\abstractname}{Abstract}
@@ -189,7 +189,7 @@
   \global\setbox\@abstractbox\hbox\bgroup
   \begin{minipage}[b]{\textwidth}
     \begin{center}%
-      {\bfseries \abstractname\vspace{-0.8em}\vspace{\z@}}%
+      {\bfseries \abstractname\vspace{-8.5pt}\vspace{\z@}}%
     \end{center}%
     \list{}{%
       \listparindent\parindent%
