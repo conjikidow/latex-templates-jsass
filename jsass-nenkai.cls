@@ -208,7 +208,7 @@
 \titleformat{\subsection}{\normalfont\normalsize}{\thesubsection}{1em}{}
 
 \titlespacing{\section}{0pt}{1.5em}{0pt}
-\titlespacing{\subsection}{0pt}{0.5em}{0pt}
+\titlespacing{\subsection}{0pt}{1em}{0pt}
 
 \newcommand{\fullwidtharabic}[1]{\expandafter\@fullwidtharabic\csname c@#1\endcsname}
 \newcommand{\@fullwidtharabic}[1]{\expandafter\@@fullwidtharabic\number#1@}
