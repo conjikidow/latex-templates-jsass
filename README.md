@@ -27,3 +27,9 @@
         - 著者の所属が複数にわたる例
 - 動作確認環境
     - TeX Live 2021 @ Ubuntu 20.04.5 LTS
+
+## latexmk
+
+おまけ。ビルド用の [latekmkrc](latexmk/latexmkrc) を追加してある。
+印刷時の確認用に白黒に変換した PDF も自動生成する。
+[latekmkrc](latexmk/latexmkrc) をプロジェクト下にコピーすること。
