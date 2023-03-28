@@ -27,6 +27,7 @@
         - 著者の所属が複数にわたる例
 - 動作確認環境
     - TeX Live 2021 @ Ubuntu 20.04.5 LTS
+    - TeX Live 2022 @ Ubuntu 22.04.2 LTS
 
 ## latexmk
 
