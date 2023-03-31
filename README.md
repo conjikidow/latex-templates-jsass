@@ -1,4 +1,4 @@
-# jsass-templates
+# jsass-latex-templates
 
 [一般社団法人日本航空宇宙学会 (The Japan Society for Aeronautical and Space Sciences, JSASS)](https://www.jsass.or.jp/) の講演集原稿用の LaTeX document class。
 処理系は LuaLaTeX。
