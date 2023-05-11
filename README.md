@@ -1,4 +1,4 @@
-# jsass-latex-templates
+# latex-templates-jsass
 
 [一般社団法人日本航空宇宙学会 (The Japan Society for Aeronautical and Space Sciences, JSASS)](https://www.jsass.or.jp/) の講演集原稿用の LaTeX document class。
 処理系は LuaLaTeX。
@@ -6,7 +6,7 @@
 `$TEXMFLOCAL` や `$TEXMFHOME` などの texmf ツリー下（推奨），あるいは適当な場所に clone する。
 後者の場合，
 ```latex
-\documentclass{/path/to/this/jsass-templates/jsass-nenkai}
+\documentclass{/path/to/this/latex-templates-jsass/jsass-nenkai}
 ```
 のようにパスを指定すること。
 
