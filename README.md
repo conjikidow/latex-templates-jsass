@@ -17,8 +17,8 @@
 - [jsass-nenkai](jsass-nenkai.cls)
 - 第54期（2023年）用に作成したが，書式は第50期から変わっていない
 - 配布された見本
-    - [PDF](sample/50_mihon.pdf)
-    - [Word](sample/50_mihon.doc)
+    - [PDF](sample/nenkai_sample_50.pdf)
+    - [Word](sample/nenkai_sample_50.doc)
 - 本テンプレートを用いた見本
     - [ソース](example/nenkai_1.tex)，[出力](example/nenkai_1.pdf)
         - 配布見本を模擬
