@@ -231,7 +231,7 @@
 
 
 % Floats
-\RequirePackage{subcaption}
+\RequirePackage{caption}
 
 \renewcommand{\thetable}{\fullwidtharabic{table}}
 \renewcommand{\thefigure}{\fullwidtharabic{figure}}
