@@ -75,14 +75,14 @@
     }%
     \@temptokena=\expandafter{\AB@eauthlist}%
     \xdef\AB@eauthlist{\the\@temptokena%
-    \ifx\AB@note@prev\@empty\else
-      \ifx\AB@note@prev\AB@note\else
-        {\protect\eAffilfont~(\@nameuse{eaffil@\AB@note@prev})}%
+      \ifx\AB@note@prev\@empty\else
+        \ifx\AB@note@prev\AB@note\else
+          {\protect\eAffilfont~(\@nameuse{eaffil@\AB@note@prev})}%
+        \fi
       \fi
-    \fi
-    \protect\@nameuse{@esep\number\c@authors}%
-    \protect{\eAuthfont#3}%
-  }%
+      \protect\@nameuse{@esep\number\c@authors}%
+      \protect{\eAuthfont#3}%
+    }%
   \endgroup
   \let\AB@note@prev\AB@note
   \ifnum\value{authors}>2\relax
