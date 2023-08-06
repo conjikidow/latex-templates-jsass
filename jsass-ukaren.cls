@@ -280,6 +280,7 @@
     {第#1号}
     {No\adddot~#1}}
   {#1}}
+\DeclareFieldFormat{date}{\thefield{year}/\thefield{month}/\thefield{day}}
 \DeclareFieldFormat{eventdate}{\thefield{eventyear}/\thefield{eventmonth}/\thefield{eventday}}
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat{urldate}{\mkbibparens{閲覧日\space\thefield{urlyear}/\thefield{urlmonth}/\thefield{urlday}}}
@@ -310,16 +311,12 @@
   {}
   {\newunit\printfield{volume}}%
   \newunit%
-  \ifboolexpr{
-    test {\iffieldundef{venue}}
-    and
-    test {\iffieldundef{eventyear}}
-  }
-  {}
-  {\printtext{%
-    \printfield{venue}%
-    \setunit*{\addcomma\space}%
-    \printeventdate}}%
+  \ifboolexpr{test {\iffieldundef{venue}}}
+    {\ifboolexpr{test {\iflistundef{location}}}{}{\printlist{location}}}
+    {\printfield{venue}}%
+  \ifboolexpr{test {\iffieldundef{eventyear}}}
+    {\ifboolexpr{test {\ifbibmacroundef{date}}}{}{\newunit\printdate}}
+    {\newunit\printeventdate}%
   \newunit}
 
 \DeclareBibliographyDriver{article}{%
