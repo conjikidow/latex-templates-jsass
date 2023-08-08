@@ -280,8 +280,6 @@
     {第#1号}
     {No\adddot~#1}}
   {#1}}
-\DeclareFieldFormat{date}{\thefield{year}/\thefield{month}/\thefield{day}}
-\DeclareFieldFormat{eventdate}{\thefield{eventyear}/\thefield{eventmonth}/\thefield{eventday}}
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat{urldate}{\mkbibparens{閲覧日\space\thefield{urlyear}/\thefield{urlmonth}/\thefield{urlday}}}
 
@@ -304,7 +302,7 @@
   \printfield{pages}\newunit%
   \printfield{year}}
 
-\renewbibmacro*{event+venue+date}{%
+\newbibmacro*{event+venue+year}{%
   \printfield{eventtitle}\newunit%
   \printfield{eventtitleaddon}%
   \iffieldundef{volume}
@@ -315,8 +313,8 @@
     {\ifboolexpr{test {\iflistundef{location}}}{}{\printlist{location}}}
     {\printfield{venue}}%
   \ifboolexpr{test {\iffieldundef{eventyear}}}
-    {\ifboolexpr{test {\ifbibmacroundef{date}}}{}{\newunit\printdate}}
-    {\newunit\printeventdate}%
+    {\ifboolexpr{test {\iffieldundef{year}}}{}{\newunit\printfield{year}}}
+    {\newunit\printfield{eventyear}}%
   \newunit}
 
 \DeclareBibliographyDriver{article}{%
@@ -334,7 +332,7 @@
   \usebibmacro{author}\newblock%
   \usebibmacro{title}%
   \iffieldundef{booktitle}
-  {\usebibmacro{event+venue+date}}
+  {\usebibmacro{event+venue+year}}
   {\usebibmacro{proceedingtitle+pages+year}}%
   \usebibmacro{finentry}%
 }
