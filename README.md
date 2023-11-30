@@ -28,6 +28,8 @@
         - 引用の例
 - 動作確認環境
     - TeX Live 2022 @ Ubuntu 22.04.2 LTS
+    - Tex Live 2021 @ Windows 11
+    - Tex Live 2021 @ Windows 10
 
 ## [年会講演会](https://branch.jsass.or.jp/nenkai/)
 
